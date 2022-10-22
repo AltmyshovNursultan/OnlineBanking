@@ -13,7 +13,7 @@ import java.util.List;
 public interface AccountResponseMapper extends CrudMethod<Account, AccountResponse> {
     AccountResponseMapper INSTANCE = Mappers.getMapper(AccountResponseMapper.class);
     @Override
-    @Mapping(source = "balance",target = "amount")
+    @Mapping(source = "amount",target = "balance")
     List<AccountResponse> toDtos (List<Account> accounts);
 
 }
