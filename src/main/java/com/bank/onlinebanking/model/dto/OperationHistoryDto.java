@@ -15,6 +15,7 @@ public class OperationHistoryDto {
     Date operationDate;
     String operationType;
     double amount;
+    double commission;
     UserDto userDto;
     Account accountId;
 }

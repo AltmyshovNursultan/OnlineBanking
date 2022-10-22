@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 public class AccountDto {
     Long id;
     String accountNumber;
+    String currency;
     UserDto userDto;
     BalanceDto balanceDto;
 }

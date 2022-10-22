@@ -18,6 +18,7 @@ public class OperationHistory {
     Date operationDate;
     String operationType;
     double amount;
+    double commission;
     @ManyToOne
         @JoinColumn(name = "user_id")
     User userId;
