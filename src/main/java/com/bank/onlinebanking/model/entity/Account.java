@@ -14,6 +14,7 @@ public class Account {
     @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Column(unique = true)
     String accountNumber;
     String currency;
     @ManyToOne(cascade = {CascadeType.ALL})

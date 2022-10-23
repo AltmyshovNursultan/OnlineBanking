@@ -10,10 +10,10 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface AccountResponseMapper extends CrudMethod<Account, AccountResponse> {
+public interface AccountResponseMapper {
     AccountResponseMapper INSTANCE = Mappers.getMapper(AccountResponseMapper.class);
-    @Override
-    @Mapping(source = "amount",target = "balance")
-    List<AccountResponse> toDtos (List<Account> accounts);
+
+    @Mapping(source = "amount",target = "balance.amount")
+    List<AccountResponse> toDtos(List<Account> e);
 
 }
