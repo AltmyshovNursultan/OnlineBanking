@@ -1,13 +1,13 @@
 
 package com.bank.onlinebanking.controller;
 
+import com.bank.onlinebanking.model.dto.OperationHistoryDto;
 import com.bank.onlinebanking.model.request.TransferRequest;
 import com.bank.onlinebanking.model.response.TransferResponse;
 import com.bank.onlinebanking.service.OperationHistoryService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/operation")
@@ -21,6 +21,11 @@ public class OperationHistoryController {
     @PostMapping("/transfer")
     public TransferResponse transfer(@RequestBody TransferRequest transferRequest){
         return operationHistoryService.transfer(transferRequest);
+    }
+
+    @GetMapping("/getHistory")
+    public List<OperationHistoryDto> getHistory(@RequestParam String accountNumber){
+        return operationHistoryService.getHistory(accountNumber);
     }
 }
 

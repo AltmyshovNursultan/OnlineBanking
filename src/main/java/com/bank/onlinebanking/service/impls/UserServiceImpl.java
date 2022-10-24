@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         this.userMapper = UserMapper.INSTANCE;
     }
 
-
+    // Create new user
     public UserDto createUser(String firstName, String lastName, String password, String phoneNumber){
         User user = new User();
         user.setFirstName(firstName);
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         return userMapper.toDto(user);
     }
-
+    // Find user by phone number
     @Override
     public User findUserByPhoneNumber(String userNumber) {
         return userRepo.findUserByPhoneNumber(userNumber);

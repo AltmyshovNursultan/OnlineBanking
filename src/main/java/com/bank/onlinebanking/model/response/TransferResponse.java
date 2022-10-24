@@ -17,4 +17,5 @@ public class TransferResponse {
     String receiverLastName;
     double amount;
     Date transactionDate;
+    double commission;
 }

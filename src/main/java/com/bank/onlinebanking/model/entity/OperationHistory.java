@@ -25,4 +25,7 @@ public class OperationHistory {
     @ManyToOne
         @JoinColumn(name = "account_id")
     Account accountId;
+    String receiverFirstName;
+    String receiverLastName;
+    String receiverAccount;
 }

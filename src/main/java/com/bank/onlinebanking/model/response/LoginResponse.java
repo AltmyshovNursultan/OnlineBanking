@@ -1,6 +1,6 @@
 package com.bank.onlinebanking.model.response;
 
-import com.bank.onlinebanking.model.entity.Account;
+import com.bank.onlinebanking.model.dto.AccountDto;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -12,5 +12,5 @@ import java.util.List;
 public class LoginResponse {
     String firstName;
     String lastName;
-    List<AccountResponse> accountResponsesList;
+    List<AccountDto> accountResponsesList;
 }

@@ -36,7 +36,8 @@ public class BalanceServiceImpl implements BalanceService {
 
     @Override
     public Balance subtract(Balance balance, double amount) {
-        double restMoney = balance.getAmount()-amount;
+        double withCommission = (amount/100)*1;
+        double restMoney = balance.getAmount()-(amount+withCommission);
         balance.setAmount(restMoney);
         balanceRepo.save(balance);
         return balance;

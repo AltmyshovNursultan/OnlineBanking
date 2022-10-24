@@ -10,6 +10,4 @@ public class UserDto {
     Long id;
     String firstName;
     String lastName;
-    String phoneNumber;
-    String password;
 }

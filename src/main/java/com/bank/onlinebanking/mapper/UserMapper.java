@@ -10,4 +10,6 @@ import org.mapstruct.factory.Mappers;
 public interface UserMapper extends CrudMethod<User, UserDto> {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
+    @Override
+    UserDto toDto(User user);
 }

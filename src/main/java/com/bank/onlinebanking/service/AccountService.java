@@ -1,9 +1,9 @@
 package com.bank.onlinebanking.service;
 
+import com.bank.onlinebanking.model.dto.AccountDto;
 import com.bank.onlinebanking.model.entity.Account;
 import com.bank.onlinebanking.model.entity.User;
 import com.bank.onlinebanking.model.request.LoginRequest;
-import com.bank.onlinebanking.model.response.AccountResponse;
 import com.bank.onlinebanking.model.response.AddedAccountResponse;
 import com.bank.onlinebanking.model.response.LoginResponse;
 import com.bank.onlinebanking.model.response.UserResponse;
@@ -16,7 +16,7 @@ public interface AccountService{
                                String accountNumber, String currency, double amount,
                                double reservedAccount);
 
-    List<AccountResponse> accountResponse(User userId);
+    List<AccountDto> accountResponse(User userId);
     LoginResponse loginUser(LoginRequest loginRequest);
 
     Account findByAccountNumber(String accountNumber);

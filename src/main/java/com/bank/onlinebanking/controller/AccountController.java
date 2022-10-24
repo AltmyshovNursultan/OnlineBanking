@@ -1,6 +1,5 @@
 package com.bank.onlinebanking.controller;
 
-import com.bank.onlinebanking.model.dto.AccountDto;
 import com.bank.onlinebanking.model.request.LoginRequest;
 import com.bank.onlinebanking.model.response.AddedAccountResponse;
 import com.bank.onlinebanking.model.response.LoginResponse;

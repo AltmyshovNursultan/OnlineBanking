@@ -2,14 +2,20 @@ package com.bank.onlinebanking.mapper;
 
 import com.bank.onlinebanking.mapper.base.CrudMethod;
 import com.bank.onlinebanking.model.dto.AccountDto;
+import com.bank.onlinebanking.model.dto.BalanceDto;
 import com.bank.onlinebanking.model.entity.Account;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+import com.bank.onlinebanking.model.entity.Balance;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
-public interface AccountMapper extends CrudMethod<Account, AccountDto> {
-    AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
+import java.util.List;
 
+@Mapper
+public interface AccountMapper  {
+    AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
+    @Mapping(source = "balance.amount", target = "amount")
+    AccountDto toDto(Account account);
+    @Mapping(source = "balance.amount", target = "amount")
+    List<AccountDto> toDtos(List<Account> accounts);
 }
