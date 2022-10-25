@@ -1,5 +1,6 @@
 ## Online Banking 
  The Online banking project is simulation of online banking system. But it is not fully completed.
+ --
  In order to create this project used tools:
   * Java 
   * Spring boot
