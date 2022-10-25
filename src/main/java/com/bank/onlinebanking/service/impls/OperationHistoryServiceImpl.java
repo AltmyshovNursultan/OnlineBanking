@@ -29,14 +29,18 @@ public class OperationHistoryServiceImpl implements OperationHistoryService {
     @Override
     public TransferResponse transfer(TransferRequest transferRequest) {
         Account senderAccount = accountService.findByAccountNumber(transferRequest.getSenderAccount());
+        // Check if sender account exists
         if (senderAccount==null){
             throw new RuntimeException("No such a user exists!");
         }
+        // Check if receiver account exists
         Account receiverAccount = accountService.findByAccountNumber(transferRequest.getReceiverAccount());
         if (receiverAccount==null || receiverAccount.equals(senderAccount)){
             throw new RuntimeException("No such a user exists or invalid user!");
         }
+        // Send money
         senderAccount = accountService.sendMoney(senderAccount,transferRequest.getAmount());
+        // Receive money
         receiverAccount = accountService.receiveMoney(receiverAccount, transferRequest.getAmount());
         double commission = (transferRequest.getAmount()/100)*1;
         // Save all data in operation history for sender
@@ -63,7 +67,7 @@ public class OperationHistoryServiceImpl implements OperationHistoryService {
         operationHistory1.setReceiverAccount(senderAccount.getAccountNumber());
         operationHistory1.setCommission(0);
         operationHistoryRepo.save(operationHistory1);
-
+        // Setting up all necessary data in transferResponse to return
         TransferResponse transferResponse = new TransferResponse();
         transferResponse.setSenderAccount(senderAccount.getAccountNumber());
         transferResponse.setReceiverAccount(receiverAccount.getAccountNumber());

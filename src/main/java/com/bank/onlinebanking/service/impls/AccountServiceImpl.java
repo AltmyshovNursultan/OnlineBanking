@@ -51,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
         // Create a balance for the account
         BalanceDto balanceDto = balanceService.createBalance(amount, reservedAmount);
         Balance balance = balanceMapper.toEntity(balanceDto);
-
+        // Save new account in server
         Account account = new Account();
         account.setAccountNumber(accountNumber);
         account.setUserId(user);
@@ -125,9 +125,11 @@ public class AccountServiceImpl implements AccountService {
                                            double reservedAmount, String currency) {
 
         User user = userService.findUserByPhoneNumber(userPhone);
+        // Checking if user exists
         if (user == null){
             throw new NullPointerException("No such a user exists!");
         }
+        // Create balance for account
         BalanceDto balanceDto = balanceService.createBalance(amount,reservedAmount);
         Balance balance = balanceMapper.toEntity(balanceDto);
         Account account = new Account();

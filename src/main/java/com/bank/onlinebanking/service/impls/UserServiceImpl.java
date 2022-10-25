@@ -4,6 +4,7 @@ import com.bank.onlinebanking.dao.UserRepo;
 import com.bank.onlinebanking.mapper.UserMapper;
 import com.bank.onlinebanking.model.dto.UserDto;
 import com.bank.onlinebanking.model.entity.User;
+import com.bank.onlinebanking.model.response.UpdatedUserResponse;
 import com.bank.onlinebanking.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByPhoneNumber(String userNumber) {
         return userRepo.findUserByPhoneNumber(userNumber);
+    }
+
+    // Updating user's password
+    @Override
+    public UpdatedUserResponse updatePassword(String phoneNumber, String password) {
+        User user = findUserByPhoneNumber(phoneNumber);
+        if (user ==  null){
+            throw new NullPointerException("No such a user exists!");
+        }
+        String oldPassword = user.getPassword();
+        user.setPassword(password);
+        userRepo.save(user);
+        UpdatedUserResponse updatedUserResponse = new UpdatedUserResponse();
+        updatedUserResponse.setFirstName(user.getFirstName());
+        updatedUserResponse.setLastName(user.getLastName());
+        updatedUserResponse.setPhoneNumber(phoneNumber);
+        updatedUserResponse.setOldPassword(oldPassword);
+        updatedUserResponse.setNewPassword(password);
+        return updatedUserResponse;
     }
 
 }

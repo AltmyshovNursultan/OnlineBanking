@@ -17,6 +17,7 @@ public class BalanceServiceImpl implements BalanceService {
         this.balanceMapper = BalanceMapper.INSTANCE;
     }
 
+    //  Create balance
     @Override
     public BalanceDto createBalance(double amount, double reservedAmount) {
         Balance balance = new Balance();
@@ -26,6 +27,7 @@ public class BalanceServiceImpl implements BalanceService {
         return balanceMapper.toDto(balance);
     }
 
+    // Add money to the receiver's account balance
     @Override
     public Balance addMoney(Balance balance, double amount) {
         double totalBalance = balance.getAmount()+amount;
@@ -34,8 +36,10 @@ public class BalanceServiceImpl implements BalanceService {
         return balance;
     }
 
+    // Subtract balance of sender
     @Override
     public Balance subtract(Balance balance, double amount) {
+        // Here is %1 commission of transfer
         double withCommission = (amount/100)*1;
         double restMoney = balance.getAmount()-(amount+withCommission);
         balance.setAmount(restMoney);
