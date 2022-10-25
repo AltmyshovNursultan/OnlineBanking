@@ -8,5 +8,6 @@
   * REST API etc
   
 Front end part is not created. 
+Purpose to create this project to practice skills.
  
  
