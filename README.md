@@ -9,6 +9,6 @@
   <br /> 
 Front end part is not created. 
 <br /> 
-Purpose to create this project to practice skills.
+This project created exclusively for practice
  
  
