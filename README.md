@@ -6,7 +6,6 @@
   * Spring Data JPA
   * Postgre SQL   
   * REST API etc
-  <br /> 
 Front end part is not created. 
 <br /> 
 This project created exclusively for practice.
