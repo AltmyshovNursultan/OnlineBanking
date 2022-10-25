@@ -6,8 +6,9 @@
   * Spring Data JPA
   * Postgre SQL   
   * REST API etc
-  
+  <br /> 
 Front end part is not created. 
+<br /> 
 Purpose to create this project to practice skills.
  
  
